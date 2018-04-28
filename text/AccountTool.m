@@ -36,7 +36,7 @@ static AccountTool *tool = nil;
         NSLog(@"打开数据库失败");
     }
     
-    BOOL result = [self.db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_account (name text NOT NULL, key text NOT NULL);"];
+    BOOL result = [self.db executeUpdate:@"CREATE TABLE IF NOT EXISTS t_account (title text NOT NULL,pic text NOT NULL,collect_num text NOT NULL,food_str text NOT NULL);"];
     if (result) {
         NSLog(@"创建表成功");
     }else{
@@ -55,10 +55,12 @@ static AccountTool *tool = nil;
 
 - (void)insertMsg:(AccountModel *)model{
     //插入数据
-    NSString *key = model.key;
-    NSString *name = model.name;
+    NSString *title = model.title;
+    NSString *pic = model.pic;
+    NSString *collect_num = model.collect_num;
+    NSString *food_str = model.food_str;
     //1.executeUpdate:不确定的参数用？来占位（后面参数必须是oc对象，；代表语句结束）
-    BOOL result = [_db executeUpdate:@"INSERT INTO t_account (key, name) VALUES (?,?)",key,name];
+    BOOL result = [_db executeUpdate:@"INSERT INTO t_account (title, pic,collect_num,food_str) VALUES (?,?,?,?)",title,pic,collect_num,food_str];
     if (result) {
         NSLog(@"插入成功");
     } else {
@@ -71,11 +73,15 @@ static AccountTool *tool = nil;
     //查询数据
     FMResultSet *result = [_db executeQuery:@"select * from t_account"];
     while ([result next]) {
-        NSString *key = [result objectForColumn:@"key"];
-        NSString *name = [result objectForColumn:@"name"];
+        NSString *title = [result objectForColumn:@"title"];
+        NSString *pic = [result objectForColumn:@"pic"];
+        NSString *collect_num = [result objectForColumn:@"collect_num"];
+        NSString *food_str = [result objectForColumn:@"food_str"];
         AccountModel *model = [AccountModel new];
-        model.key = key;
-        model.name = name;
+        model.title = title;
+        model.pic = pic;
+        model.collect_num = collect_num;
+        model.food_str = food_str;
         [dataArr addObject:model];
     }
     return dataArr;

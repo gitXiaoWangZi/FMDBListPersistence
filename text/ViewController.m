@@ -11,6 +11,7 @@
 #import "AccountModel.h"
 #import "AccountTool.h"
 #import <MJExtension.h>
+#import "MenuCell.h"
 
 @interface ViewController ()<UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITextField *keyTF;
@@ -19,7 +20,7 @@
 @property (nonatomic,strong) AccountTool *tool;
 @end
 
-static NSString *const cellID = @"cellID";
+static NSString *const cellID = @"MenuCell";
 @implementation ViewController
 
 - (IBAction)searchClick:(id)sender {
@@ -27,7 +28,7 @@ static NSString *const cellID = @"cellID";
     [self.tool removeTable];
     [self.tool creatTable];
     [self.dataArray removeAllObjects];
-    NSString *urlStr = [NSString stringWithFormat:@"http://baike.baidu.com/api/openapi/BaikeLemmaCardApi?scope=103&format=json&appid=379020&bk_key=%@&bk_length=600",self.keyTF.text];
+    NSString *urlStr = [NSString stringWithFormat:@"http://www.qubaobei.com/ios/cf/dish_list.php?stage_id=1&page=%@&limit=20",self.keyTF.text];
     urlStr = [urlStr stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlStr];
     NSURLRequest *request = [NSURLRequest requestWithURL:url];
@@ -36,7 +37,7 @@ static NSString *const cellID = @"cellID";
         NSLog(@"网络响应：response：%@-----------%@",response,data);
         NSDictionary *dict = [NSJSONSerialization JSONObjectWithData:data options:kNilOptions error:nil];
         NSLog(@"网络响应：dict：%@",dict);
-        NSArray *dataArr = dict[@"card"];
+        NSArray *dataArr = dict[@"data"];
         for (NSDictionary *dic in dataArr) {
             AccountModel *model = [AccountModel mj_objectWithKeyValues:dic];
             [self.tool insertMsg:model];
@@ -56,7 +57,7 @@ static NSString *const cellID = @"cellID";
     
     self.myTableV.delegate = self;
     self.myTableV.dataSource = self;
-    [self.myTableV registerClass:[UITableViewCell class] forCellReuseIdentifier:cellID];
+    [self.myTableV registerNib:[UINib nibWithNibName:@"MenuCell" bundle:nil] forCellReuseIdentifier:cellID];
     
     [self.tool creatTable];
     self.dataArray = [[self.tool showOldMsg] mutableCopy];
@@ -71,14 +72,13 @@ static NSString *const cellID = @"cellID";
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
     AccountModel *model = self.dataArray[indexPath.row];
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
-    cell.textLabel.text = model.key;
-    cell.detailTextLabel.text = model.name;
+    MenuCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID forIndexPath:indexPath];
+    cell.model = model;
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-    return 40;
+    return 94;
 }
 
 - (NSMutableArray *)dataArray{

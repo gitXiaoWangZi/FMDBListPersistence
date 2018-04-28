@@ -20,6 +20,8 @@
 		92339C5D2092C1640070C183 /* textUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 92339C5C2092C1640070C183 /* textUITests.m */; };
 		92339C6C2092C1C10070C183 /* AccountTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 92339C6B2092C1C10070C183 /* AccountTool.m */; };
 		92339C6F2092C2E80070C183 /* AccountModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 92339C6E2092C2E80070C183 /* AccountModel.m */; };
+		926B1CAA20943F1000E40C49 /* MenuCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 926B1CA820943F1000E40C49 /* MenuCell.m */; };
+		926B1CAB20943F1000E40C49 /* MenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 926B1CA920943F1000E40C49 /* MenuCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -66,6 +68,9 @@
 		92339C6B2092C1C10070C183 /* AccountTool.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountTool.m; sourceTree = "<group>"; };
 		92339C6D2092C2E80070C183 /* AccountModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AccountModel.h; sourceTree = "<group>"; };
 		92339C6E2092C2E80070C183 /* AccountModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AccountModel.m; sourceTree = "<group>"; };
+		926B1CA720943F1000E40C49 /* MenuCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MenuCell.h; sourceTree = "<group>"; };
+		926B1CA820943F1000E40C49 /* MenuCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MenuCell.m; sourceTree = "<group>"; };
+		926B1CA920943F1000E40C49 /* MenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MenuCell.xib; sourceTree = "<group>"; };
 		AC38013F1F28B83F9BF6C645 /* Pods-textTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-textTests/Pods-textTests.release.xcconfig"; sourceTree = "<group>"; };
 		F6DEA8EDC0E3471D10603270 /* Pods-textTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-textTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-textTests/Pods-textTests.debug.xcconfig"; sourceTree = "<group>"; };
 		FE778C167D016D99930A6E9C /* Pods-text.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-text.release.xcconfig"; path = "Pods/Target Support Files/Pods-text/Pods-text.release.xcconfig"; sourceTree = "<group>"; };
@@ -141,6 +146,9 @@
 				92339C392092C1640070C183 /* AppDelegate.m */,
 				92339C3B2092C1640070C183 /* ViewController.h */,
 				92339C3C2092C1640070C183 /* ViewController.m */,
+				926B1CA720943F1000E40C49 /* MenuCell.h */,
+				926B1CA820943F1000E40C49 /* MenuCell.m */,
+				926B1CA920943F1000E40C49 /* MenuCell.xib */,
 				92339C6A2092C1C10070C183 /* AccountTool.h */,
 				92339C6B2092C1C10070C183 /* AccountTool.m */,
 				92339C6D2092C2E80070C183 /* AccountModel.h */,
@@ -299,6 +307,7 @@
 			files = (
 				92339C452092C1640070C183 /* LaunchScreen.storyboard in Resources */,
 				92339C422092C1640070C183 /* Assets.xcassets in Resources */,
+				926B1CAB20943F1000E40C49 /* MenuCell.xib in Resources */,
 				92339C402092C1640070C183 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -464,6 +473,7 @@
 			files = (
 				92339C3D2092C1640070C183 /* ViewController.m in Sources */,
 				92339C482092C1640070C183 /* main.m in Sources */,
+				926B1CAA20943F1000E40C49 /* MenuCell.m in Sources */,
 				92339C6F2092C2E80070C183 /* AccountModel.m in Sources */,
 				92339C3A2092C1640070C183 /* AppDelegate.m in Sources */,
 				92339C6C2092C1C10070C183 /* AccountTool.m in Sources */,

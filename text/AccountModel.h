@@ -10,7 +10,10 @@
 
 @interface AccountModel : NSObject<NSCoding>
 
-@property (nonatomic,copy) NSString *name;
-@property (nonatomic,copy) NSString *key;
+@property (nonatomic,copy) NSString *title;
+@property (nonatomic,copy) NSString *pic;
+@property (nonatomic,copy) NSString *collect_num;
+@property (nonatomic,copy) NSString *food_str;
+@property (nonatomic,copy) NSString *num;
 
 @end

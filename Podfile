@@ -9,6 +9,7 @@ target 'text' do
 #
 pod 'FMDB'
 pod 'MJExtension'
+pod 'SDWebImage'
   target 'textTests' do
     inherit! :search_paths
     # Pods for testing
